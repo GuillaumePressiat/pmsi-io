@@ -9,6 +9,11 @@ pmsi::io : un logiciel pour lire les in/out du PMSi et les exporter en csv, xlsx
 
 Voir la page de présentation [ici](https://guillaumepressiat.github.io/blog/2024/04/pmsi-io).
 
+Une vidéo est disponible ici : 
+
+[https://www.youtube.com/watch?v=sDyYsXLEjx4](https://www.youtube.com/watch?v=sDyYsXLEjx4)
+
+
 
 ## Installation
 
