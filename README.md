@@ -29,3 +29,21 @@ Télécharger l'application ici
 Lancer l'installation en fonction du système d'exploitation.
 
 
+### Sur mac
+
+Si l'application ne s'ouvre pas, cela peut venir de la sécurité Apple (GateKeeper).
+L'application pmsi-io n'est pas signée auprès d'apple (coût de 99€/an pour le développeur).
+
+Vous pouvez tout de même choisir d'installer l'application en suivant ces étapes.
+
+- Ouvrir les Réglages Systèmes et aller dans la rubrique Confidentialité et Sécurité.
+- En bas de cet écran, autoriser l'application pmsi-io.app 
+
+### Sur Windows
+
+Si Windows Smartscreen empêche l'installation de l'application, vous pouvez suivre ces étapes.
+
+- clic droit sur pmsi-io-xxx.exe
+- Propriétés
+- Cocher Débloquer (si débloquer n'est pas coché)
+
