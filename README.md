@@ -15,7 +15,7 @@ Une vidéo est disponible ici :
 
 
 
-## Installation
+## Installation / mises à jour
 
 L'application est disponible pour Windows, Ubuntu et Mac.
 
