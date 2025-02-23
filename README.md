@@ -64,3 +64,10 @@ Voir [ici](https://github.com/GuillaumePressiat/pmsi-io/releases/tag/v0.1.8).
 
 Ajouter éventuellement pmsi-clio dans le PATH.
 
+
+# pmsi_rust
+
+Ces deux développements reposent sur la librairie [pmsi_rust](https://guillaumepressiat.github.io/docr_pmsi/pmsi_rust/index.html).
+
+Me contacter pour en savoir plus.
+
