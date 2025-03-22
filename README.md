@@ -50,7 +50,7 @@ Si Windows Smartscreen empêche l'installation de l'application, vous pouvez sui
 
 # pmsi-clio
 
-pmsi::io : un logiciel en ligne de commande (CLI) pour lire les in/out du PMSi et les exporter en csv, xlsx, txt, json et parquet
+pmsi-clio : un logiciel en ligne de commande (CLI) pour lire les in/out du PMSi et les exporter en csv, xlsx, txt, json et parquet
 
 <center>
 <img src="apercu-pmsi-clio.png" width = "93%"/>
