@@ -61,7 +61,7 @@ pmsi-clio : un logiciel en ligne de commande (CLI) pour lire les in/out du PMSi 
 
 L'outil en CLI est disponible pour Windows, Ubuntu et Mac.
 
-Voir [ici](https://github.com/GuillaumePressiat/pmsi-io/releases/tag/v0.1.10).
+Voir [ici](https://github.com/GuillaumePressiat/pmsi-io/releases/tag/v.0.1.10).
 
 Ajouter éventuellement pmsi-clio dans le PATH.
 
