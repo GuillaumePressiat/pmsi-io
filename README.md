@@ -22,9 +22,9 @@ L'application est disponible pour Windows, Ubuntu et Mac.
 
 Télécharger l'application ici
 
-- [Mac Silicon](https://github.com/GuillaumePressiat/pmsi-io/releases/download/v.0.1.10/pmsi-io_0.1.10_aarch64.dmg) &bull;&bull;&bull; [Mac Intel](https://github.com/GuillaumePressiat/pmsi-io/releases/download/v.0.1.10/pmsi-io_0.1.10_x64.dmg) &bull;&bull;&bull; [Mac Universal](https://github.com/GuillaumePressiat/pmsi-io/releases/download/v.0.1.10/pmsi-io_0.1.10_universal.dmg)
-- [Windows exe](https://github.com/GuillaumePressiat/pmsi-io/releases/download/v.0.1.10/pmsi-io_0.1.10_x64-setup.exe) &bull;&bull;&bull; [Windows msi](https://github.com/GuillaumePressiat/pmsi-io/releases/download/v.0.1.10/pmsi-io_0.1.10_x64_fr-FR.msi)
-- [Ubuntu deb](https://github.com/GuillaumePressiat/pmsi-io/releases/download/v.0.1.10/pmsi-io_0.1.10_amd64.deb) &bull;&bull;&bull; [Ubuntu AppImage](https://github.com/GuillaumePressiat/pmsi-io/releases/download/v.0.1.10/pmsi-io_0.1.10_amd64.AppImage) &bull;&bull;&bull; [Linux RPM](https://github.com/GuillaumePressiat/pmsi-io/releases/download/v.0.1.10/pmsi-io-0.1.10-1.x86_64.rpm)
+- [Mac Silicon](https://github.com/GuillaumePressiat/pmsi-io/releases/download/v.0.2.0/pmsi-io_0.2.0_aarch64.dmg) &bull;&bull;&bull; [Mac Intel](https://github.com/GuillaumePressiat/pmsi-io/releases/download/v.0.2.0/pmsi-io_0.2.0_x64.dmg) &bull;&bull;&bull; [Mac Universal](https://github.com/GuillaumePressiat/pmsi-io/releases/download/v.0.2.0/pmsi-io_0.2.0_universal.dmg)
+- [Windows exe](https://github.com/GuillaumePressiat/pmsi-io/releases/download/v.0.2.0/pmsi-io_0.2.0_x64-setup.exe) &bull;&bull;&bull; [Windows msi](https://github.com/GuillaumePressiat/pmsi-io/releases/download/v.0.2.0/pmsi-io_0.2.0_x64_fr-FR.msi)
+- [Ubuntu deb](https://github.com/GuillaumePressiat/pmsi-io/releases/download/v.0.2.0/pmsi-io_0.2.0_amd64.deb) &bull;&bull;&bull; [Ubuntu AppImage](https://github.com/GuillaumePressiat/pmsi-io/releases/download/v.0.2.0/pmsi-io_0.2.0_amd64.AppImage) &bull;&bull;&bull; [Linux RPM](https://github.com/GuillaumePressiat/pmsi-io/releases/download/v.0.2.0/pmsi-io-0.2.0-1.x86_64.rpm)
 
 
 Lancer l'installation en fonction du système d'exploitation.
@@ -61,7 +61,7 @@ pmsi-clio : un logiciel en ligne de commande (CLI) pour lire les in/out du PMSi 
 
 L'outil en CLI est disponible pour Windows, Ubuntu et Mac.
 
-Voir [ici](https://github.com/GuillaumePressiat/pmsi-io/releases/tag/v.0.1.10).
+Voir [ici](https://github.com/GuillaumePressiat/pmsi-io/releases/tag/v.0.2.0).
 
 Ajouter éventuellement pmsi-clio dans le PATH.
 
