@@ -1,4 +1,4 @@
-# pmsi-io <img width="180" align = "right" alt="logo-v3_for_base64 1-modified" src="https://github.com/user-attachments/assets/07c6391a-6a60-437e-9de2-a05c4bc14f47" />
+# pmsi-io <img width="160" align = "right" alt="logo-v3_for_base64 1-modified" src="https://github.com/user-attachments/assets/07c6391a-6a60-437e-9de2-a05c4bc14f47" />
 
 pmsi::io : un logiciel pour lire les in/out du PMSi et les exporter en csv, xlsx, txt, json et parquet
 
@@ -22,9 +22,9 @@ L'application est disponible pour Windows, Ubuntu et Mac.
 
 Télécharger l'application ici
 
-- [Mac Silicon](https://github.com/GuillaumePressiat/pmsi-io/releases/download/v0.2.0/pmsi-io_0.2.0_aarch64.dmg) &bull;&bull;&bull; [Mac Intel](https://github.com/GuillaumePressiat/pmsi-io/releases/download/v0.2.0/pmsi-io_0.2.0_x64.dmg) &bull;&bull;&bull; [Mac Universal](https://github.com/GuillaumePressiat/pmsi-io/releases/download/v0.2.0/pmsi-io_0.2.0_universal.dmg)
-- [Windows exe](https://github.com/GuillaumePressiat/pmsi-io/releases/download/v0.2.0/pmsi-io_0.2.0_x64-setup.exe) &bull;&bull;&bull; [Windows msi](https://github.com/GuillaumePressiat/pmsi-io/releases/download/v0.2.0/pmsi-io_0.2.0_x64_fr-FR.msi)
-- [Ubuntu deb](https://github.com/GuillaumePressiat/pmsi-io/releases/download/v0.2.0/pmsi-io_0.2.0_amd64.deb) &bull;&bull;&bull; [Ubuntu AppImage](https://github.com/GuillaumePressiat/pmsi-io/releases/download/v0.2.0/pmsi-io_0.2.0_amd64.AppImage) &bull;&bull;&bull; [Linux RPM](https://github.com/GuillaumePressiat/pmsi-io/releases/download/v0.2.0/pmsi-io-0.2.0-1.x86_64.rpm)
+- [Mac Silicon](https://github.com/GuillaumePressiat/pmsi-io/releases/download/v0.2.1/pmsi-io_0.2.1_aarch64.dmg) &bull;&bull;&bull; [Mac Intel](https://github.com/GuillaumePressiat/pmsi-io/releases/download/v0.2.1/pmsi-io_0.2.1_x64.dmg) &bull;&bull;&bull; [Mac Universal](https://github.com/GuillaumePressiat/pmsi-io/releases/download/v0.2.1/pmsi-io_0.2.1_universal.dmg)
+- [Windows exe](https://github.com/GuillaumePressiat/pmsi-io/releases/download/v0.2.1/pmsi-io_0.2.1_x64-setup.exe) &bull;&bull;&bull; [Windows msi](https://github.com/GuillaumePressiat/pmsi-io/releases/download/v0.2.1/pmsi-io_0.2.1_x64_fr-FR.msi)
+- [Ubuntu deb](https://github.com/GuillaumePressiat/pmsi-io/releases/download/v0.2.1/pmsi-io_0.2.1_amd64.deb) &bull;&bull;&bull; [Ubuntu AppImage](https://github.com/GuillaumePressiat/pmsi-io/releases/download/v0.2.1/pmsi-io_0.2.1_amd64.AppImage) &bull;&bull;&bull; [Linux RPM](https://github.com/GuillaumePressiat/pmsi-io/releases/download/v0.2.1/pmsi-io-0.2.1-1.x86_64.rpm)
 
 
 Lancer l'installation en fonction du système d'exploitation.
