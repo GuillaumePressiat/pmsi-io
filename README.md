@@ -1,6 +1,6 @@
 # pmsi-io <img width="160" align = "right" alt="logo-v3_for_base64 1-modified" src="https://github.com/user-attachments/assets/e7838cb6-00d6-4bd3-9d3b-d6eaa560df4f" />
 
-pmsi::io : un logiciel pour lire les in/out du PMSi et les exporter en csv, xlsx, txt, json et parquet
+pmsi-io : un logiciel pour lire les in/out du PMSi et les exporter en csv, xlsx, txt, json et parquet
 
 <center>
 <img src="apercu-pmsi-io.png" width = "93%"/>
