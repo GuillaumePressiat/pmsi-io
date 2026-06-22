@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>pmsi::io — documentation</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --green:   #4e8a4d;
+    --green-l: #7ab87a;
+    --bg:      #1a1f2e;
+    --bg2:     #232940;
+    --text:    #c8d0e0;
+    --muted:   #6b7280;
+    --mono:    'JetBrains Mono', 'Fira Mono', monospace;
+  }
+
+  html, body {
+    height: 100%;
+    overflow: hidden;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--mono);
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ── Header ── */
+  header {
+    padding: 20px 48px 16px;
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    border-bottom: 1px solid rgba(78,138,77,0.2);
+    flex-shrink: 0;
+  }
+  .logo {
+    font-size: 2rem;
+    font-weight: 300;
+    letter-spacing: -0.02em;
+    color: var(--green);
+  }
+  .logo span { color: rgba(78,138,77,0.4); }
+  .badge {
+    font-size: 0.65rem;
+    color: var(--muted);
+    letter-spacing: 0.08em;
+    border: 1px solid rgba(107,114,128,0.4);
+    padding: 2px 8px;
+    border-radius: 20px;
+  }
+  .tagline {
+    margin-left: auto;
+    font-size: 0.68rem;
+    color: var(--muted);
+    letter-spacing: 0.04em;
+  }
+
+  /* ── Carousel ── */
+  .carousel-wrap {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 48px 12px;
+    min-height: 0;
+  }
+
+  .carousel {
+    flex: 1;
+    min-height: 0;
+    position: relative;
+  }
+
+  .slide {
+    display: none;
+    flex-direction: column;
+    height: 100%;
+    gap: 14px;
+    animation: fadein 0.25s ease;
+  }
+  .slide.active { display: flex; }
+
+  @keyframes fadein {
+    from { opacity: 0; transform: translateY(4px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .slide-img-wrap {
+    flex: 1;
+    min-height: 0;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 16px 48px rgba(0,0,0,0.6);
+    border: 1px solid rgba(78,138,77,0.15);
+  }
+  .slide-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: top;
+    display: block;
+  }
+
+  .slide-caption {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    flex-shrink: 0;
+  }
+  .slide-num {
+    font-size: 0.62rem;
+    color: var(--green);
+    letter-spacing: 0.1em;
+    opacity: 0.7;
+    flex-shrink: 0;
+  }
+  .slide-caption h2 {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--green-l);
+    flex-shrink: 0;
+    min-width: 110px;
+  }
+  .slide-caption p {
+    font-size: 0.7rem;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  /* ── Nav ── */
+  .nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 10px 0 14px;
+    flex-shrink: 0;
+  }
+
+  .nav-btn {
+    background: none;
+    border: 1px solid rgba(78,138,77,0.3);
+    color: var(--green);
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background 0.15s, border-color 0.15s;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .nav-btn:hover { background: rgba(78,138,77,0.1); border-color: var(--green); }
+
+  .dots { display: flex; gap: 8px; align-items: center; }
+  .dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--muted);
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+    padding: 0;
+  }
+  .dot.active { background: var(--green); transform: scale(1.4); }
+
+  .gh-link {
+    margin-left: 12px;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    transition: color 0.15s;
+  }
+  .gh-link:hover { color: var(--green); }
+
+  /* ── Footer ── */
+  footer {
+    padding: 8px 48px;
+    font-size: 0.62rem;
+    color: var(--muted);
+    letter-spacing: 0.06em;
+    border-top: 1px solid rgba(107,114,128,0.15);
+    text-align: center;
+    flex-shrink: 0;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">pmsi<span>::</span>io</div>
+  <span class="badge">v0.4.0</span>
+  <span class="tagline">Conversion &amp; requêtage PMSI MCO — Tauri · Rust · Svelte</span>
+  <a class="gh-link" href="https://github.com/GuillaumePressiat/pmsi-io" target="_blank" rel="noopener" aria-label="GitHub">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
+    </svg>
+  </a>
+</header>
+
+<div class="carousel-wrap">
+  <div class="carousel">
+
+    <div class="slide active" data-index="0">
+      <div class="slide-img-wrap">
+        <img src="assets/1-apercu.png" alt="Conversion" />
+      </div>
+      <div class="slide-caption">
+        <span class="slide-num">01</span>
+        <h2>Conversion</h2>
+        <p>Sélectionnez les fichiers PMSI à exporter, choisissez le format (csv, xlsx, parquet…) et lancez la conversion en un clic.</p>
+      </div>
+    </div>
+
+    <div class="slide" data-index="1">
+      <div class="slide-img-wrap">
+        <img src="assets/2-requete.png" alt="Requêtes" />
+      </div>
+      <div class="slide-caption">
+        <span class="slide-num">02</span>
+        <h2>Requêtes</h2>
+        <p>Exécutez des requêtes pré-établies ou personnalisées sur vos RSA, filtrez par thématique et exportez les résultats.</p>
+      </div>
+    </div>
+
+    <div class="slide" data-index="2">
+      <div class="slide-img-wrap">
+        <img src="assets/3-lab.png" alt="Requête Lab'" />
+      </div>
+      <div class="slide-caption">
+        <span class="slide-num">03</span>
+        <h2>Requête Lab'</h2>
+        <p>Construisez vos propres requêtes (GHM, diagnostics, actes CCAM, âge, poids…), sauvegardez-les et partagez-les en JSON.</p>
+      </div>
+    </div>
+
+    <div class="slide" data-index="3">
+      <div class="slide-img-wrap">
+        <img src="assets/4-help.png" alt="Aide" />
+      </div>
+      <div class="slide-caption">
+        <span class="slide-num">04</span>
+        <h2>Aide</h2>
+        <p>Documentation intégrée : hygiène numérique, prise en main pas à pas, requêtes avancées.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="nav">
+    <button class="nav-btn" id="prev" aria-label="Précédent">&#8592;</button>
+    <div class="dots">
+      <button class="dot active" data-index="0" aria-label="Conversion"></button>
+      <button class="dot" data-index="1" aria-label="Requêtes"></button>
+      <button class="dot" data-index="2" aria-label="Requête Lab'"></button>
+      <button class="dot" data-index="3" aria-label="Aide"></button>
+    </div>
+    <button class="nav-btn" id="next" aria-label="Suivant">&#8594;</button>
+  </div>
+</div>
+
+<footer>pmsi::io · v0.4.0 · 2026 · guillaume.pressiat@chu-brest.fr</footer>
+
+<script>
+  const slides = document.querySelectorAll('.slide');
+  const dots   = document.querySelectorAll('.dot');
+  let current  = 0;
+
+  function go(n) {
+    slides[current].classList.remove('active');
+    dots[current].classList.remove('active');
+    current = (n + slides.length) % slides.length;
+    slides[current].classList.add('active');
+    dots[current].classList.add('active');
+  }
+
+  document.getElementById('prev').addEventListener('click', () => go(current - 1));
+  document.getElementById('next').addEventListener('click', () => go(current + 1));
+  dots.forEach(d => d.addEventListener('click', () => go(+d.dataset.index)));
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'ArrowLeft')  go(current - 1);
+    if (e.key === 'ArrowRight') go(current + 1);
+  });
+</script>
+</body>
+</html>
