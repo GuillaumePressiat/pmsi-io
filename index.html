@@ -11,44 +11,43 @@
     --green:   #4e8a4d;
     --green-l: #7ab87a;
     --bg:      #1a1f2e;
-    --bg2:     #232940;
     --text:    #c8d0e0;
     --muted:   #6b7280;
     --mono:    'JetBrains Mono', 'Fira Mono', monospace;
   }
 
+  /* ── Desktop : tout dans le viewport, pas de scroll ── */
   html, body {
     height: 100%;
-  }
-
-  body {
+    overflow: hidden;
     background: var(--bg);
     color: var(--text);
     font-family: var(--mono);
+  }
+
+  body {
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
   }
 
   /* ── Header ── */
   header {
-    padding: 20px 32px 16px;
+    padding: 16px 40px 14px;
     display: flex;
     align-items: center;
     gap: 12px;
     border-bottom: 1px solid rgba(78,138,77,0.2);
     flex-shrink: 0;
-    flex-wrap: wrap;
   }
   .logo {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     font-weight: 300;
     letter-spacing: -0.02em;
     color: var(--green);
   }
   .logo span { color: rgba(78,138,77,0.4); }
   .badge {
-    font-size: 0.62rem;
+    font-size: 0.6rem;
     color: var(--muted);
     letter-spacing: 0.08em;
     border: 1px solid rgba(107,114,128,0.4);
@@ -57,7 +56,7 @@
   }
   .tagline {
     margin-left: auto;
-    font-size: 0.65rem;
+    font-size: 0.64rem;
     color: var(--muted);
     letter-spacing: 0.03em;
   }
@@ -67,18 +66,32 @@
     align-items: center;
     transition: color 0.15s;
     flex-shrink: 0;
+    margin-left: 12px;
   }
   .gh-link:hover { color: var(--green); }
 
-  /* ── Carousel ── */
+  /* ── Carousel : prend tout l'espace restant ── */
   .carousel-wrap {
     flex: 1;
+    min-height: 0;
     display: flex;
     flex-direction: column;
-    padding: 24px 32px 16px;
+    padding: 20px 40px 12px;
   }
 
-  .slide { display: none; flex-direction: column; gap: 16px; animation: fadein 0.25s ease; }
+  .carousel {
+    flex: 1;
+    min-height: 0;
+    position: relative;
+  }
+
+  .slide {
+    display: none;
+    flex-direction: column;
+    height: 100%;
+    gap: 12px;
+    animation: fadein 0.25s ease;
+  }
   .slide.active { display: flex; }
 
   @keyframes fadein {
@@ -86,8 +99,10 @@
     to   { opacity: 1; transform: translateY(0); }
   }
 
+  /* L'image prend tout l'espace flex restant */
   .slide-img-wrap {
-    width: 100%;
+    flex: 1;
+    min-height: 0;
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 16px 48px rgba(0,0,0,0.6);
@@ -95,18 +110,18 @@
   }
   .slide-img-wrap img {
     width: 100%;
-    display: block;
-    max-height: 60vh;
+    height: 100%;
     object-fit: contain;
-    object-position: top;
-    background: #1a1f2e;
+    object-position: top center;
+    display: block;
+    background: var(--bg);
   }
 
   .slide-caption {
     display: flex;
     align-items: baseline;
     gap: 12px;
-    flex-wrap: wrap;
+    flex-shrink: 0;
   }
   .slide-num {
     font-size: 0.6rem;
@@ -116,13 +131,14 @@
     flex-shrink: 0;
   }
   .slide-caption h2 {
-    font-size: 0.88rem;
+    font-size: 0.85rem;
     font-weight: 500;
     color: var(--green-l);
     flex-shrink: 0;
+    min-width: 110px;
   }
   .slide-caption p {
-    font-size: 0.7rem;
+    font-size: 0.68rem;
     color: var(--muted);
     line-height: 1.6;
   }
@@ -133,17 +149,17 @@
     align-items: center;
     justify-content: center;
     gap: 20px;
-    padding: 16px 0 20px;
+    padding: 10px 0 12px;
     flex-shrink: 0;
   }
   .nav-btn {
     background: none;
     border: 1px solid rgba(78,138,77,0.3);
     color: var(--green);
-    width: 36px; height: 36px;
+    width: 32px; height: 32px;
     border-radius: 50%;
     cursor: pointer;
-    font-size: 1rem;
+    font-size: 0.9rem;
     transition: background 0.15s, border-color 0.15s;
     display: flex; align-items: center; justify-content: center;
   }
@@ -151,11 +167,10 @@
 
   .dots { display: flex; gap: 8px; align-items: center; }
   .dot {
-    width: 8px; height: 8px;
+    width: 7px; height: 7px;
     border-radius: 50%;
     background: var(--muted);
-    border: none;
-    cursor: pointer;
+    border: none; cursor: pointer;
     transition: background 0.2s, transform 0.2s;
     padding: 0;
   }
@@ -163,8 +178,8 @@
 
   /* ── Footer ── */
   footer {
-    padding: 10px 32px;
-    font-size: 0.6rem;
+    padding: 7px 40px;
+    font-size: 0.58rem;
     color: var(--muted);
     letter-spacing: 0.05em;
     border-top: 1px solid rgba(107,114,128,0.15);
@@ -172,12 +187,16 @@
     flex-shrink: 0;
   }
 
-  /* ── Mobile ── */
-  @media (max-width: 600px) {
-    header { padding: 16px 20px 12px; }
+  /* ── Mobile : scroll naturel ── */
+  @media (max-width: 700px) {
+    html, body { height: auto; overflow: auto; }
+    .carousel-wrap { flex: none; padding: 16px 20px 12px; }
+    .carousel { flex: none; }
+    .slide { height: auto; }
+    .slide-img-wrap { flex: none; }
+    .slide-img-wrap img { height: auto; max-height: 56vw; object-fit: contain; }
+    header { padding: 14px 20px; flex-wrap: wrap; }
     .tagline { display: none; }
-    .carousel-wrap { padding: 16px 20px 12px; }
-    .slide-img-wrap img { max-height: 52vw; }
     footer { padding: 8px 20px; }
   }
 </style>
@@ -189,7 +208,7 @@
   <span class="badge">v0.4.0</span>
   <span class="tagline">Conversion &amp; requêtage PMSI MCO — Tauri · Rust · Svelte</span>
   <a class="gh-link" href="https://github.com/GuillaumePressiat/pmsi-io" target="_blank" rel="noopener" aria-label="GitHub">
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
       <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
     </svg>
   </a>
@@ -281,7 +300,7 @@
 
   // Swipe touch
   let tx = 0;
-  document.querySelector('.carousel').addEventListener('touchstart', e => tx = e.touches[0].clientX);
+  document.querySelector('.carousel').addEventListener('touchstart', e => tx = e.touches[0].clientX, {passive: true});
   document.querySelector('.carousel').addEventListener('touchend', e => {
     const dx = e.changedTouches[0].clientX - tx;
     if (Math.abs(dx) > 40) go(dx < 0 ? current + 1 : current - 1);
