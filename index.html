@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" data-theme="dark">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,56 +7,85 @@
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-  :root {
-    --green:   #4e8a4d;
-    --green-l: #7ab87a;
-    --bg:      #1a1f2e;
-    --text:    #c8d0e0;
-    --muted:   #6b7280;
-    --mono:    'JetBrains Mono', 'Fira Mono', monospace;
+  /* ── Thèmes ── */
+  [data-theme="dark"] {
+    --green:      #4e8a4d;
+    --green-l:    #7ab87a;
+    --bg:         #1b2027;
+    --surface:    #232a33;
+    --border:     #2d3a52;
+    --text:       #e2e8f0;
+    --muted:      #6b7685;
+    --accent-dim: rgba(78,138,77,0.2);
+  }
+  [data-theme="light"] {
+    --green:      #2f8a55;
+    --green-l:    #1f7a44;
+    --bg:         #e9edf1;
+    --surface:    #ffffff;
+    --border:     #d3dae2;
+    --text:       #1b2530;
+    --muted:      #7a8696;
+    --accent-dim: rgba(47,138,85,0.12);
+  }
+  [data-theme="original"] {
+    --green:      #4e8a4d;
+    --green-l:    #86efac;
+    --bg:         #353c52;
+    --surface:    rgb(31 41 55);
+    --border:     rgb(75 85 99);
+    --text:       rgb(209 213 219);
+    --muted:      rgb(107 114 128);
+    --accent-dim: rgba(78,138,77,0.2);
+  }
+  [data-theme="original"] body {
+    background:
+      radial-gradient(at 0% 0%,   rgba(59,130,246,.25) 0px, transparent 55%),
+      radial-gradient(at 98% 1%,  rgba(78,136,77,.55)  0px, transparent 45%),
+      #353c52;
   }
 
-  /* ── Desktop : tout dans le viewport, pas de scroll ── */
   html, body {
     height: 100%;
     overflow: hidden;
     background: var(--bg);
     color: var(--text);
-    font-family: var(--mono);
+    font-family: 'JetBrains Mono', 'Fira Mono', monospace;
+    transition: background .25s, color .2s;
   }
-
-  body {
-    display: flex;
-    flex-direction: column;
-  }
+  body { display: flex; flex-direction: column; }
 
   /* ── Header ── */
   header {
-    padding: 16px 40px 14px;
+    padding: 14px 36px 12px;
     display: flex;
     align-items: center;
     gap: 12px;
-    border-bottom: 1px solid rgba(78,138,77,0.2);
+    border-bottom: 1px solid var(--border);
     flex-shrink: 0;
+    background: color-mix(in srgb, var(--bg) 85%, transparent);
+    backdrop-filter: blur(8px);
+    transition: background .25s, border-color .2s;
   }
   .logo {
-    font-size: 1.6rem;
+    font-size: 1.5rem;
     font-weight: 300;
     letter-spacing: -0.02em;
     color: var(--green);
   }
-  .logo span { color: rgba(78,138,77,0.4); }
+  .logo span { color: color-mix(in srgb, var(--green) 40%, transparent); }
   .badge {
     font-size: 0.6rem;
     color: var(--muted);
     letter-spacing: 0.08em;
-    border: 1px solid rgba(107,114,128,0.4);
+    border: 1px solid var(--border);
     padding: 2px 8px;
     border-radius: 20px;
+    transition: border-color .2s;
   }
   .tagline {
     margin-left: auto;
-    font-size: 0.64rem;
+    font-size: 0.63rem;
     color: var(--muted);
     letter-spacing: 0.03em;
   }
@@ -66,47 +95,69 @@
     align-items: center;
     transition: color 0.15s;
     flex-shrink: 0;
-    margin-left: 12px;
+    margin-left: 8px;
   }
   .gh-link:hover { color: var(--green); }
 
-  /* ── Carousel : prend tout l'espace restant ── */
+  /* ── Theme switcher ── */
+  .theme-switcher {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-left: 16px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 3px 4px;
+    transition: background .25s, border-color .2s;
+  }
+  .theme-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--muted);
+    font-family: inherit;
+    font-size: 10px;
+    padding: 3px 8px;
+    border-radius: 5px;
+    transition: background .15s, color .15s;
+    white-space: nowrap;
+  }
+  .theme-btn:hover { color: var(--text); background: var(--accent-dim); }
+  .theme-btn.active { color: var(--green); background: var(--accent-dim); }
+
+  /* ── Carousel ── */
   .carousel-wrap {
     flex: 1;
     min-height: 0;
     display: flex;
     flex-direction: column;
-    padding: 20px 40px 12px;
+    padding: 18px 36px 10px;
   }
-
-  .carousel {
-    flex: 1;
-    min-height: 0;
-    position: relative;
-  }
+  .carousel { flex: 1; min-height: 0; position: relative; }
 
   .slide {
     display: none;
     flex-direction: column;
     height: 100%;
-    gap: 12px;
-    animation: fadein 0.25s ease;
+    gap: 10px;
+    animation: fadein 0.2s ease;
   }
   .slide.active { display: flex; }
 
   @keyframes fadein {
-    from { opacity: 0; transform: translateY(4px); }
+    from { opacity: 0; transform: translateY(3px); }
     to   { opacity: 1; transform: translateY(0); }
   }
 
-  /* L'image prend tout l'espace flex restant */
   .slide-img-wrap {
     flex: 1;
     min-height: 0;
     border-radius: 10px;
     overflow: hidden;
-    box-shadow: 0 16px 48px rgba(0,0,0,0.6);
-    border: 1px solid rgba(78,138,77,0.15);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.45);
+    border: 1px solid color-mix(in srgb, var(--green) 18%, transparent);
+    transition: border-color .25s, box-shadow .25s;
   }
   .slide-img-wrap img {
     width: 100%;
@@ -115,6 +166,7 @@
     object-position: top center;
     display: block;
     background: var(--bg);
+    transition: background .25s;
   }
 
   .slide-caption {
@@ -124,23 +176,25 @@
     flex-shrink: 0;
   }
   .slide-num {
-    font-size: 0.6rem;
+    font-size: 0.58rem;
     color: var(--green);
     letter-spacing: 0.1em;
     opacity: 0.7;
     flex-shrink: 0;
   }
   .slide-caption h2 {
-    font-size: 0.85rem;
+    font-size: 0.82rem;
     font-weight: 500;
     color: var(--green-l);
     flex-shrink: 0;
     min-width: 110px;
+    transition: color .25s;
   }
   .slide-caption p {
-    font-size: 0.68rem;
+    font-size: 0.67rem;
     color: var(--muted);
-    line-height: 1.6;
+    line-height: 1.65;
+    transition: color .25s;
   }
 
   /* ── Nav ── */
@@ -148,26 +202,25 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 20px;
-    padding: 10px 0 12px;
+    gap: 18px;
+    padding: 8px 0 10px;
     flex-shrink: 0;
   }
   .nav-btn {
     background: none;
-    border: 1px solid rgba(78,138,77,0.3);
+    border: 1px solid color-mix(in srgb, var(--green) 35%, transparent);
     color: var(--green);
-    width: 32px; height: 32px;
+    width: 30px; height: 30px;
     border-radius: 50%;
     cursor: pointer;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     transition: background 0.15s, border-color 0.15s;
     display: flex; align-items: center; justify-content: center;
   }
-  .nav-btn:hover { background: rgba(78,138,77,0.1); border-color: var(--green); }
-
+  .nav-btn:hover { background: var(--accent-dim); border-color: var(--green); }
   .dots { display: flex; gap: 8px; align-items: center; }
   .dot {
-    width: 7px; height: 7px;
+    width: 6px; height: 6px;
     border-radius: 50%;
     background: var(--muted);
     border: none; cursor: pointer;
@@ -178,40 +231,42 @@
 
   /* ── Footer ── */
   footer {
-    padding: 7px 40px;
-    font-size: 0.58rem;
+    padding: 6px 36px;
+    font-size: 0.57rem;
     color: var(--muted);
     letter-spacing: 0.05em;
-    border-top: 1px solid rgba(107,114,128,0.15);
+    border-top: 1px solid var(--border);
     text-align: center;
     flex-shrink: 0;
+    transition: border-color .2s, color .2s;
   }
 
   /* ── Mobile portrait ── */
   @media (max-width: 700px) {
     html, body { height: auto; overflow: auto; }
-    .carousel-wrap { flex: none; padding: 16px 20px 12px; }
+    .carousel-wrap { flex: none; padding: 14px 18px 10px; }
     .carousel { flex: none; }
     .slide { height: auto; }
     .slide-img-wrap { flex: none; }
     .slide-img-wrap img { height: auto; max-height: 52vh; object-fit: contain; }
-    header { padding: 14px 20px; flex-wrap: wrap; }
+    header { padding: 12px 18px; flex-wrap: wrap; }
     .tagline { display: none; }
-    footer { padding: 8px 20px; }
+    footer { padding: 8px 18px; }
+    .theme-switcher { margin-left: auto; }
   }
 
   /* ── Mobile landscape ── */
   @media (max-width: 900px) and (orientation: landscape) {
     html, body { height: 100%; overflow: hidden; }
-    .carousel-wrap { flex: 1; min-height: 0; padding: 8px 20px 6px; }
+    .carousel-wrap { flex: 1; min-height: 0; padding: 6px 18px 4px; }
     .carousel { flex: 1; min-height: 0; }
     .slide { height: 100%; }
     .slide-img-wrap { flex: 1; min-height: 0; }
     .slide-img-wrap img { width: 100%; height: 100%; object-fit: contain; max-height: none; }
     .slide-caption { display: none; }
-    header { padding: 8px 20px; }
+    header { padding: 7px 18px; }
     .tagline { display: none; }
-    .nav { padding: 6px 0; }
+    .nav { padding: 5px 0; }
     footer { display: none; }
   }
 </style>
@@ -220,13 +275,18 @@
 
 <header>
   <div class="logo">pmsi<span>::</span>io</div>
-  <span class="badge">v0.4.0</span>
+  <span class="badge">v0.4.1</span>
   <span class="tagline">Conversion &amp; requêtage PMSI MCO — Tauri · Rust · Svelte</span>
   <a class="gh-link" href="https://github.com/GuillaumePressiat/pmsi-io" target="_blank" rel="noopener" aria-label="GitHub">
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+    <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor">
       <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
     </svg>
   </a>
+  <div class="theme-switcher">
+    <button class="theme-btn active" data-t="dark">☾ Sombre</button>
+    <button class="theme-btn" data-t="light">☀ Clair</button>
+    <button class="theme-btn" data-t="original">◍ Original</button>
+  </div>
 </header>
 
 <div class="carousel-wrap">
@@ -234,7 +294,7 @@
 
     <div class="slide active" data-index="0">
       <div class="slide-img-wrap">
-        <img src="assets/1-apercu.png" alt="Conversion" />
+        <img id="img-0" src="assets/dark/1-apercu.png" alt="Conversion" />
       </div>
       <div class="slide-caption">
         <span class="slide-num">01</span>
@@ -245,7 +305,7 @@
 
     <div class="slide" data-index="1">
       <div class="slide-img-wrap">
-        <img src="assets/2-requete.png" alt="Requêtes" />
+        <img id="img-1" src="assets/dark/2-requete.png" alt="Requêtes" />
       </div>
       <div class="slide-caption">
         <span class="slide-num">02</span>
@@ -256,7 +316,7 @@
 
     <div class="slide" data-index="2">
       <div class="slide-img-wrap">
-        <img src="assets/3-lab.png" alt="Requête Lab'" />
+        <img id="img-2" src="assets/dark/3-lab.png" alt="Requête Lab'" />
       </div>
       <div class="slide-caption">
         <span class="slide-num">03</span>
@@ -267,11 +327,11 @@
 
     <div class="slide" data-index="3">
       <div class="slide-img-wrap">
-        <img src="assets/4-help.png" alt="Aide" />
+        <img id="img-3" src="assets/dark/4-help.png" alt="À propos" />
       </div>
       <div class="slide-caption">
         <span class="slide-num">04</span>
-        <h2>Aide</h2>
+        <h2>À propos &amp; aide</h2>
         <p>Documentation intégrée : hygiène numérique, prise en main pas à pas, requêtes avancées.</p>
       </div>
     </div>
@@ -284,18 +344,23 @@
       <button class="dot active" data-index="0" aria-label="Conversion"></button>
       <button class="dot" data-index="1" aria-label="Requêtes"></button>
       <button class="dot" data-index="2" aria-label="Requête Lab'"></button>
-      <button class="dot" data-index="3" aria-label="Aide"></button>
+      <button class="dot" data-index="3" aria-label="À propos"></button>
     </div>
     <button class="nav-btn" id="next" aria-label="Suivant">&#8594;</button>
   </div>
 </div>
 
-<footer>pmsi::io · v0.4.0 · 2026 · guillaume.pressiat@chu-brest.fr</footer>
+<footer>pmsi::io · v0.4.1 · 2026 · guillaume.pressiat@chu-brest.fr</footer>
 
 <script>
-  const slides = document.querySelectorAll('.slide');
-  const dots   = document.querySelectorAll('.dot');
-  let current  = 0;
+  const slides    = document.querySelectorAll('.slide');
+  const dots      = document.querySelectorAll('.dot');
+  const themeBtns = document.querySelectorAll('.theme-btn');
+  const imgs      = [0,1,2,3].map(i => document.getElementById('img-' + i));
+  const NAMES     = ['1-apercu','2-requete','3-lab','4-help'];
+
+  let current = 0;
+  let theme   = 'dark';
 
   function go(n) {
     slides[current].classList.remove('active');
@@ -305,9 +370,21 @@
     dots[current].classList.add('active');
   }
 
+  function setTheme(t) {
+    theme = t;
+    document.documentElement.setAttribute('data-theme', t);
+    themeBtns.forEach(b => b.classList.toggle('active', b.dataset.t === t));
+    // Mettre à jour toutes les images
+    imgs.forEach((img, i) => {
+      img.src = 'assets/' + t + '/' + NAMES[i] + '.png';
+    });
+  }
+
   document.getElementById('prev').addEventListener('click', () => go(current - 1));
   document.getElementById('next').addEventListener('click', () => go(current + 1));
   dots.forEach(d => d.addEventListener('click', () => go(+d.dataset.index)));
+  themeBtns.forEach(b => b.addEventListener('click', () => setTheme(b.dataset.t)));
+
   document.addEventListener('keydown', e => {
     if (e.key === 'ArrowLeft')  go(current - 1);
     if (e.key === 'ArrowRight') go(current + 1);
