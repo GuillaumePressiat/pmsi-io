@@ -22,10 +22,10 @@ L'application est disponible pour Windows, Ubuntu et Mac.
 
 Télécharger l'application ici
 
-- [Mac Silicon](https://github.com/GuillaumePressiat/pmsi-io/releases/download/v0.4.0/pmsi-io_0.4.0_aarch64.dmg) &bull;&bull;&bull; 
-[Mac Intel](https://github.com/GuillaumePressiat/pmsi-io/releases/download/v0.4.0/pmsi-io_0.4.0_x64.dmg) &bull;&bull;&bull; [Mac Universal](https://github.com/GuillaumePressiat/pmsi-io/releases/download/v0.4.0/pmsi-io_0.4.0_universal.dmg)
-- [Windows exe](https://github.com/GuillaumePressiat/pmsi-io/releases/download/v0.4.0/pmsi-io_0.4.0_x64-setup.exe) &bull;&bull;&bull; [Windows msi](https://github.com/GuillaumePressiat/pmsi-io/releases/download/v0.4.0/pmsi-io_0.4.0_x64_fr-FR.msi)
-- [Ubuntu deb](https://github.com/GuillaumePressiat/pmsi-io/releases/download/v0.4.0/pmsi-io_0.4.0_amd64.deb) &bull;&bull;&bull; [Ubuntu AppImage](https://github.com/GuillaumePressiat/pmsi-io/releases/download/v0.4.0/pmsi-io_0.4.0_amd64.AppImage) &bull;&bull;&bull; [Linux RPM](https://github.com/GuillaumePressiat/pmsi-io/releases/download/v0.4.0/pmsi-io-0.4.0-1.x86_64.rpm)
+- [Mac Silicon](https://github.com/GuillaumePressiat/pmsi-io/releases/download/v0.4.1/pmsi-io_0.4.1_aarch64.dmg) &bull;&bull;&bull; 
+[Mac Intel](https://github.com/GuillaumePressiat/pmsi-io/releases/download/v0.4.1/pmsi-io_0.4.1_x64.dmg) &bull;&bull;&bull; [Mac Universal](https://github.com/GuillaumePressiat/pmsi-io/releases/download/v0.4.1/pmsi-io_0.4.1_universal.dmg)
+- [Windows exe](https://github.com/GuillaumePressiat/pmsi-io/releases/download/v0.4.1/pmsi-io_0.4.1_x64-setup.exe) &bull;&bull;&bull; [Windows msi](https://github.com/GuillaumePressiat/pmsi-io/releases/download/v0.4.1/pmsi-io_0.4.1_x64_fr-FR.msi)
+- [Ubuntu deb](https://github.com/GuillaumePressiat/pmsi-io/releases/download/v0.4.1/pmsi-io_0.4.1_amd64.deb) &bull;&bull;&bull; [Ubuntu AppImage](https://github.com/GuillaumePressiat/pmsi-io/releases/download/v0.4.1/pmsi-io_0.4.1_amd64.AppImage) &bull;&bull;&bull; [Linux RPM](https://github.com/GuillaumePressiat/pmsi-io/releases/download/v0.4.1/pmsi-io-0.4.1-1.x86_64.rpm)
 
 
 Lancer l'installation en fonction du système d'exploitation.
