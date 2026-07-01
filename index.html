@@ -336,6 +336,16 @@
       </div>
     </div>
 
+    <div class="slide" data-index="4">
+      <div class="slide-img-wrap">
+        <img id="img-4" src="assets/dark/5-explorer.png" alt="Explorer" />
+      </div>
+      <div class="slide-caption">
+        <span class="slide-num">05</span>
+        <h2>Explorer</h2>
+        <p>Pour une liste de requêtes, explorez visuellement vos données (pivot table et graphiques)</p>
+      </div>
+    </div>
   </div>
 
   <div class="nav">
@@ -345,6 +355,7 @@
       <button class="dot" data-index="1" aria-label="Requêtes"></button>
       <button class="dot" data-index="2" aria-label="Requête Lab'"></button>
       <button class="dot" data-index="3" aria-label="À propos"></button>
+      <button class="dot" data-index="4" aria-label="Explorer"></button>
     </div>
     <button class="nav-btn" id="next" aria-label="Suivant">&#8594;</button>
   </div>
@@ -356,8 +367,8 @@
   const slides    = document.querySelectorAll('.slide');
   const dots      = document.querySelectorAll('.dot');
   const themeBtns = document.querySelectorAll('.theme-btn');
-  const imgs      = [0,1,2,3].map(i => document.getElementById('img-' + i));
-  const NAMES     = ['1-apercu','2-requete','3-lab','4-help'];
+  const imgs      = [0,1,2,3,4].map(i => document.getElementById('img-' + i));
+  const NAMES     = ['1-apercu','2-requete','3-lab','4-help', '5-explorer'];
 
   let current = 0;
   let theme   = 'dark';
