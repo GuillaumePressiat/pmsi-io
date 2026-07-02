@@ -176,14 +176,14 @@
     flex-shrink: 0;
   }
   .slide-num {
-    font-size: 0.58rem;
+    font-size: 0.9rem;
     color: var(--green);
     letter-spacing: 0.1em;
     opacity: 0.7;
     flex-shrink: 0;
   }
   .slide-caption h2 {
-    font-size: 0.82rem;
+    font-size: 1.2rem;
     font-weight: 500;
     color: var(--green-l);
     flex-shrink: 0;
@@ -191,7 +191,7 @@
     transition: color .25s;
   }
   .slide-caption p {
-    font-size: 0.67rem;
+    font-size: 0.9rem;
     color: var(--muted);
     line-height: 1.65;
     transition: color .25s;
@@ -346,6 +346,28 @@
         <p>Pour une liste de requêtes, explorez visuellement vos données (pivot table et graphiques)</p>
       </div>
     </div>
+
+        <div class="slide" data-index="5">
+      <div class="slide-img-wrap">
+        <img id="img-5" src="assets/dark/6-pyramid.png" alt="Explorer" />
+      </div>
+      <div class="slide-caption">
+        <span class="slide-num">06</span>
+        <h2>Pyramide des âges</h2>
+        <p>Pour une liste de requêtes, explorez visuellement vos données (pivot table et graphiques)</p>
+      </div>
+    </div>
+        <div class="slide" data-index="6">
+      <div class="slide-img-wrap">
+        <img id="img-6" src="assets/dark/explorer-example-2.png" alt="Explorer" />
+      </div>
+      <div class="slide-caption">
+        <span class="slide-num">07</span>
+        <h2>Explorer (exemple 2)</h2>
+        <p>Pour une liste de requêtes, explorez visuellement vos données (pivot table et graphiques)</p>
+      </div>
+    </div>
+
   </div>
 
   <div class="nav">
@@ -356,6 +378,8 @@
       <button class="dot" data-index="2" aria-label="Requête Lab'"></button>
       <button class="dot" data-index="3" aria-label="À propos"></button>
       <button class="dot" data-index="4" aria-label="Explorer"></button>
+      <button class="dot" data-index="5" aria-label="Pyramide des âges"></button>
+      <button class="dot" data-index="6" aria-label="Explorer (exemple 2)"></button>
     </div>
     <button class="nav-btn" id="next" aria-label="Suivant">&#8594;</button>
   </div>
@@ -367,8 +391,8 @@
   const slides    = document.querySelectorAll('.slide');
   const dots      = document.querySelectorAll('.dot');
   const themeBtns = document.querySelectorAll('.theme-btn');
-  const imgs      = [0,1,2,3,4].map(i => document.getElementById('img-' + i));
-  const NAMES     = ['1-apercu','2-requete','3-lab','4-help', '5-explorer'];
+  const imgs      = [0,1,2,3,4,5,6].map(i => document.getElementById('img-' + i));
+  const NAMES     = ['1-apercu','2-requete','3-lab','4-help', '5-explorer', '6-pyramid', '7-explorer-example-2'];
 
   let current = 0;
   let theme   = 'dark';
