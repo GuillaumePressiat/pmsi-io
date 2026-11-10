@@ -1,0 +1,33 @@
+pmsi-io et pmsi-clio — Requêteur rust PMSI
+Copyright (c) 2024-2026 Guillaume Pressiat
+
+Ces produits sont distribués sous licence Apache 2.0 (voir LICENSE).
+Toute redistribution, modifiée ou non, doit conserver ce fichier NOTICE
+ou en reproduire le contenu, conformément à la section 4(d) de la licence.
+
+
+Intentions de l’auteur
+----------------------
+Les paragraphes qui suivent expriment une intention. Conformément à la
+section 4(d), ils ne modifient pas la licence et n’ajoutent aucune
+obligation juridique.
+
+pmsi-io et pmsi-clio s’inscrivent dans une démarche de communs numériques pour le PMSI :
+des outils partagés, transparents et améliorés collectivement par les DIM
+et toutes les équipes qui travaillent sur l’information médicale.
+
+Vos retours sont précieux : signalement d’erreurs, cas d’usage, idées
+d’évolution, résultats divergents avec d’autres outils.
+Contact : guillaume.pressiat@chu-brest.fr
+
+L’auteur souhaite que ces outils restent accessibles à toutes et à tous.
+Il demande à celles et ceux qui les réutilisent de ne pas les enfermer
+dans des produits fermés, de partager leurs améliorations avec la
+communauté et de citer le projet.
+
+
+Composants tiers
+----------------
+Ce produit inclut des composants tiers ; leur liste et leurs licences
+sont disponibles via : pmsi-clio --third-party / --third-party-licenses
+A COMPLETER
